@@ -1,7 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import Button from "./exercices/Button.js"
-import Calculator  from './exercices/Calculator.js';
+
+import Calculator from './exercices/Calculator.js';
 
 function App() {
   return (
@@ -21,7 +22,9 @@ function App() {
         </a>
       </header>
       <Button />
-      <Calculator />
+      
+      <Calculator/> 
+
       <br>
       </br>
 

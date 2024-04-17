@@ -1,52 +1,53 @@
-import React, { useState } from "react"
+import React, { useState } from "react";
+import ShowResult from "./ShowResult";
 
-const Calculator = () => { 
-    const [firstNum, setFirstNum] = useState(0)
-    const [secondNum, setSecondNum] = useState(0)
-    const [result, setResult] = useState(0)
+const Calculator = () => {
+    const [firstNum, setFirstNum] = useState(0);
+    const [secondNum, setSecondNum] = useState(0);
+    const [result, setResult] = useState(0);
+    const [allResults, setResults] = useState([]);
 
     const handleSum = () => {
-       setResult(firstNum + secondNum )
+       setResult(firstNum + secondNum);
+       setResults(prevResults => [...prevResults, firstNum + secondNum]);
     }
+
     const handleSubtraction = () => {
-        setResult(firstNum - secondNum )
+        setResult(firstNum - secondNum);
+        setResults(prevResults => [...prevResults, firstNum - secondNum]);
     }
+
     const handleMultiplication = () => {
-        setResult(firstNum * secondNum )
+        setResult(firstNum * secondNum);
+        setResults(prevResults => [...prevResults, firstNum * secondNum]);
     }
+
     const handleDivison = () => {
-        setResult(firstNum / secondNum )
+        setResult(firstNum / secondNum);
+        setResults(prevResults => [...prevResults, firstNum / secondNum]);
     }
-    
+
     return (
         <>
-        <input
-        type="Number"
-         value ={firstNum}
-         placeholder="NUMBER 1"
-         onChange={ e => setFirstNum(Number(e.target.value)) }
-         >
-
-         </input>
-
-        <input 
-        type="Number"
-        value ={secondNum}
-        placeholder="NUMBER 2"
-        onChange= { e => setSecondNum(Number(e.target.value)) }
-        >
-
-        </input>
-
-        <button onClick={handleSum}>+</button>
-        <button onClick={handleSubtraction}>-</button>
-        <button onClick={handleMultiplication}>X</button>
-        <button onClick={handleDivison}>%</button>
-        <span>Result = {result} </span>
-       
+            <input
+                type="number"
+                value={firstNum}
+                placeholder="NUMBER 1"
+                onChange={e => setFirstNum(Number(e.target.value))}
+            />
+            <input
+                type="number"
+                value={secondNum}
+                placeholder="NUMBER 2"
+                onChange={e => setSecondNum(Number(e.target.value))}
+            />
+            <button onClick={handleSum}>+</button>
+            <button onClick={handleSubtraction}>-</button>
+            <button onClick={handleMultiplication}>X</button>
+            <button onClick={handleDivison}>%</button>
+            <ShowResult arrayToShow = {allResults}>Result = </ShowResult>
         </>
-
-        
-    )
+    );
 }
-export default Calculator
+
+export default Calculator;
