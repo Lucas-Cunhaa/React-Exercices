@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ShowResult from "./ShowResult";
+import AlertResults from "./AlertResult";
 
 const Calculator = () => {
     const [firstNum, setFirstNum] = useState(0);
@@ -45,7 +46,10 @@ const Calculator = () => {
             <button onClick={handleSubtraction}>-</button>
             <button onClick={handleMultiplication}>X</button>
             <button onClick={handleDivison}>%</button>
-            <ShowResult arrayToShow = {allResults}>Result = </ShowResult>
+
+            <ShowResult arrayToShow = {allResults}>Results = </ShowResult>
+
+            <AlertResults myResult = {result}> </AlertResults>
         </>
     );
 }
