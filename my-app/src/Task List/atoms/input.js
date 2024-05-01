@@ -1,10 +1,7 @@
 import React from 'react' 
-const Input = (props) => {
-   
+const Input = ({ onChange, value }) => {
     return ( 
-        <>
-        <input type= "text" onChange={props.HandleGetTask()}>{props.children}</input> 
-        </>
+        <input type= "text" onChange={onChange} value={value}></input> 
     )
 }
 
